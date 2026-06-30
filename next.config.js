@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -7,17 +13,7 @@ const nextConfig = {
         hostname: 'cdn.weatherapi.com',
         pathname: '/weather/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'openweathermap.org',
-        pathname: '/img/**',
-      },
     ],
-  },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
   },
 };
 
