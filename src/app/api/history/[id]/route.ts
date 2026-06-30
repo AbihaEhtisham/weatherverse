@@ -2,28 +2,22 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { updateHistorySchema } from '@/lib/validators';
 
-// PUT — Update a history record (notes, favorite status only)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
 
-    // Validate update input
     const validation = updateHistorySchema.safeParse(body);
     if (!validation.success) {
       return NextResponse.json(
-        {
-          error: 'Validation failed',
-          message: validation.error.errors.map((e) => e.message).join(', '),
-        },
+        { error: 'Validation failed', message: validation.error.errors.map((e) => e.message).join(', ') },
         { status: 400 }
       );
     }
 
-    // Check if record exists
     const existing = await prisma.weatherSearch.findUnique({ where: { id } });
     if (!existing) {
       return NextResponse.json(
@@ -32,7 +26,6 @@ export async function PUT(
       );
     }
 
-    // Update only allowed fields (notes and favorite)
     const updated = await prisma.weatherSearch.update({
       where: { id },
       data: {
@@ -43,23 +36,21 @@ export async function PUT(
 
     return NextResponse.json({ record: updated });
   } catch (error) {
-    console.error('History update error:', error);
+    console.error('PUT error:', error);
     return NextResponse.json(
-      { error: 'Database error', message: 'Failed to update record. Please try again.' },
+      { error: 'Database error', message: 'Failed to update record' },
       { status: 500 }
     );
   }
 }
 
-// DELETE — Remove a history record
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
-    // Check if record exists
     const existing = await prisma.weatherSearch.findUnique({ where: { id } });
     if (!existing) {
       return NextResponse.json(
@@ -72,9 +63,9 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Record deleted successfully' });
   } catch (error) {
-    console.error('History delete error:', error);
+    console.error('DELETE error:', error);
     return NextResponse.json(
-      { error: 'Database error', message: 'Failed to delete record. Please try again.' },
+      { error: 'Database error', message: 'Failed to delete record' },
       { status: 500 }
     );
   }
