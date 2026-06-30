@@ -10,6 +10,7 @@ interface WeatherCardProps {
 
 export default function WeatherCard({ weather }: WeatherCardProps) {
   const { location, current } = weather;
+  const localTime = location.localtime || new Date().toISOString();
 
   return (
     <div className="glass-card overflow-hidden animate-fade-in">
@@ -27,7 +28,7 @@ export default function WeatherCard({ weather }: WeatherCardProps) {
             <h2 className="text-2xl font-bold text-gray-800">{location.country}</h2>
             <div className="flex items-center gap-1 text-xs text-gray-400 mt-1">
               <Calendar className="w-3 h-3" />
-              <span>{formatDate(location.localtime || '')} • {formatTime(location.localtime || '')}</span>
+              <span>{formatDate(localTime)} • {formatTime(localTime)}</span>
             </div>
           </div>
 

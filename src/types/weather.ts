@@ -62,30 +62,6 @@ export interface ForecastResponse {
   };
 }
 
-// OpenWeatherMap Types (for 5-day forecast fallback)
-export interface OWMListItem {
-  dt: number;
-  main: {
-    temp: number;
-    feels_like: number;
-    humidity: number;
-  };
-  weather: WeatherCondition[];
-  wind: {
-    speed: number;
-  };
-  visibility: number;
-  dt_txt: string;
-}
-
-export interface OWMForecastResponse {
-  list: OWMListItem[];
-  city: {
-    name: string;
-    country: string;
-  };
-}
-
 // Combined/Aggregated Types for our app
 export interface WeatherData {
   location: {
@@ -94,6 +70,7 @@ export interface WeatherData {
     country: string;
     lat: number;
     lon: number;
+    localtime?: string;
   };
   current: {
     temp: number;
