@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeatherVerse — Full Stack Weather Intelligence Platform
 
-## Getting Started
+**PM Accelerator Technical Assessment — Full Stack Engineering Role**
 
-First, run the development server:
+A comprehensive weather intelligence platform that provides real-time weather data, 5-day forecasts, trip planning with day scoring, activity and clothing recommendations, city comparison, and full CRUD history management.
+
+---
+
+## 🚀 Features
+
+### Core Features
+- **Smart Location Search** — Search by city name, ZIP/postal code, GPS coordinates, or landmarks
+- **Current Weather** — Temperature, feels like, humidity, wind, UV index, visibility, pressure, and air quality
+- **5-Day Forecast** — Detailed daily forecast with high/low temps, rain chance, and conditions
+- **Geolocation Support** — Get weather for your current location with one click
+
+### Standout Features
+- **⭐ Trip Planner** — Intelligent day scoring algorithm that finds the best day to visit
+- **🧠 Decision Assistant** — Rule-based recommendations for clothing and activities
+- **🗺️ Google Maps Integration** — Visualize any searched location on an embedded map
+- **📊 Compare Cities** — Side-by-side weather comparison for two locations
+- **📝 Full CRUD History** — All searches are saved; view, edit, and delete past records
+- **📤 Data Export** — Export history to JSON or CSV formats
+- **🎨 Dynamic Backgrounds** — UI theme changes based on weather conditions (sunny, rainy, snowy, etc.)
+- **✅ Error Handling** — Graceful error messages for invalid locations, API failures, and network issues
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | Next.js 15 (App Router) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS |
+| **Database** | SQLite + Prisma ORM |
+| **Weather API** | WeatherAPI.com |
+| **Maps** | Google Maps Embed API |
+| **Animations** | Framer Motion |
+| **Icons** | Lucide React |
+| **Validation** | Zod |
+| **Deployment** | Vercel |
+
+---
+
+## 📦 Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- A free API key from [WeatherAPI.com](https://www.weatherapi.com/signup.aspx)
+- A Google Maps API key (optional, for map display)
+
+---
+
+## 🔧 Setup & Installation
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/YOUR_USERNAME/weatherverse.git
+cd weatherverse

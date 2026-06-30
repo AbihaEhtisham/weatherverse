@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/50 rounded-2xl shadow-lg;
+  }
+
+  .gradient-sunny {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 50%, #F59E0B 100%);
+  }
+
+  .gradient-rainy {
+    background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 50%, #3B82F6 100%);
+  }
+
+  .gradient-cloudy {
+    background: linear-gradient(135deg, #F3F4F6 0%, #D1D5DB 50%, #9CA3AF 100%);
+  }
+
+  .gradient-snowy {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 50%, #C7D2FE 100%);
+  }
+
+  .gradient-stormy {
+    background: linear-gradient(135deg, #E9D5FF 0%, #A855F7 50%, #6B21A8 100%);
+  }
+
+  .gradient-night {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 50%, #020617 100%);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
