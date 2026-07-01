@@ -16,7 +16,7 @@ export default function Footer() {
               to help you break into and excel in product management.
             </p>
             <a
-              href="https://www.linkedin.com/company/product-manager-accelerator"
+              href="https://www.linkedin.com/school/pmaccelerator"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-pm-blue hover:underline mt-2"
